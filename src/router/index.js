@@ -125,7 +125,7 @@ const routes = [
 const router = new VueRouter({
 	routes,
 	base: 'zelda',
-	history: createWebHistory(),
+	mode: 'history',
 	scrollBehavior: (to, from, savedPosition) => {
 		if (savedPosition) {
 			return savedPosition;
