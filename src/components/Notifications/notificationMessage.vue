@@ -29,7 +29,7 @@ export default {
     created() {
         this.timeout = setTimeout(() => {
             this.removeNotification();
-        }, 35000)
+        }, 3250)
     },
     beforeDestroy() {
         clearTimeout(this.timeout);
