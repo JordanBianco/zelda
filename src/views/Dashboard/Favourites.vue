@@ -1,7 +1,8 @@
 <template>
     <div>
-        <pageHeader
-            text="Libri salvati"
+        <breadcrumb
+            :routes="[{ name: 'Dashboard', text: 'Dashboard' }]"
+            current="libri salvati"
         />
 
         <div v-if="favourites">
@@ -19,13 +20,13 @@
 
 <script>
 import bookCard from '@/components/bookCard'
-import pageHeader from '@/components/Layout/pageHeader'
+import breadcrumb from '@/components/Elements/breadcrumb'
 
 export default {
     name: 'Favourites',
     components: {
         bookCard,
-        pageHeader
+        breadcrumb
     },
     computed: {
         favourites() {

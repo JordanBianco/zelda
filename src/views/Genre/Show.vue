@@ -7,7 +7,7 @@
         <breadcrumb
             :routes="[
                 {
-                    name: 'Book.index',
+                    name: 'Books',
                     text: 'Libri'
                 },
             ]"

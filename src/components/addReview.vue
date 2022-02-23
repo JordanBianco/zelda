@@ -2,13 +2,13 @@
     <div>
         <div
             @click="closeSidebarReview()"
-            class="fixed inset-0 bg-black opacity-20 z-10"
+            class="fixed inset-0 bg-black opacity-20 z-30"
             v-if="show">
         </div>
 
         <div
             :class="{ 'translate-x-full' : ! show }"
-            class="fixed transform transition ease-linear bg-white right-0 top-0 bottom-0 z-20 w-full md:w-96 shadow-xl">
+            class="fixed transform transition ease-linear bg-white right-0 top-0 bottom-0 z-40 w-full md:w-96 shadow-xl">
                 <header class="border-b p-6 flex justify-between items-center">
                     <span class="block text-gray-600 text-sm">Lascia una recensione</span>
                     <svg @click="closeSidebarReview()" class="w-5 h-5 flex-none text-gray-400 hover:text-gray-600 transition cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/></svg>

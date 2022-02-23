@@ -2,7 +2,7 @@
 	<div class="bg-gray-50 min-h-screen" style="font-family: 'Montserrat', sans-serif;">
 		<theNavbar />
 		<transition name="fade">
-			<router-view class="w-85% xl:w-3/4 mx-auto" />
+			<router-view class="px-4 md:px-10 lg:px-20 pb-20" />
 		</transition>
 
 		<notificationList />

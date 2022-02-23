@@ -15,8 +15,10 @@ module.exports = {
 				'primary-100' : '#FEC89A',
 				'primary-200' : '#FEBE85',
 				'primary-300' : '#FEB372',
-				'secondary-100' : '#333333', 
-				'secondary-200' : '#292929', 
+				'secondary-100' : '#333333',
+				'secondary-200' : '#292929',
+				'secondary-300' : '#313131',
+				'secondary-400' : '#3e3e3e'
 			},
 			spacing: {
 				'4.5' : '18px',
@@ -25,7 +27,10 @@ module.exports = {
 			},
 			fontSize: {
 				'xxs' : '10px'
-			}
+			},
+			transitionProperty: {
+                'width': 'width'
+            },
 		},
 		screens: {
 			'xs': '375px',

@@ -12,10 +12,10 @@ export const getOrders = async ({commit}) => {
     }
 }
 
-export const storeOrder = async ({commit, dispatch}, {user_id, items, total}) => {
+export const storeOrder = async ({commit, dispatch}, {customer, items, total}) => {
     try {
         const res = await api.post('orders', {
-            user_id: user_id,
+            customer: customer,
             items: items,
             total: total,
         })
@@ -25,11 +25,18 @@ export const storeOrder = async ({commit, dispatch}, {user_id, items, total}) =>
             router.push({ name: 'Orders' })
         }
     } catch (error) {
-        console.log(error)
+        commit('SET_SUCCESS_STATUS', true)
+        if (error.response.status === 422) {
+            commit('SET_ERRORS', error.response.data.errors)
+        }
     }
 }
 
-export const setSuccessStatus = async ({commit}, value) => {
+export const setSuccessStatus = ({commit}, value) => {
     commit('SET_SUCCESS_STATUS', value)
+}
+
+export const clearErrors = ({commit}) => {
+    commit('SET_ERRORS', [])
 }
 

@@ -4,15 +4,18 @@
             <img 
                 v-if="user.image"
                 :src="imagePath"
+                class="w-full"
                 alt="user image">
         
             <img
                 v-else
+                class="w-full"
                 :src="'https://eu.ui-avatars.com/api/?name='+user.name"
                 alt="user image">
         </div>
         <div v-else>
             <img
+                class="w-full"
                 :src="'https://eu.ui-avatars.com/api/?name=undefined'"
                 alt="user image">
         </div>

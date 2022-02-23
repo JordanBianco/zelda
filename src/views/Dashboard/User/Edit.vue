@@ -1,7 +1,8 @@
 <template>
     <div>
-        <pageHeader
-            text="Modifica profilo"
+        <breadcrumb
+            :routes="[{ name: 'Dashboard', text: 'Dashboard' }]"
+            current="modifica profilo"
         />
 
         <div class="mb-10 border-b flex items-center overflow-x-auto">
@@ -143,16 +144,16 @@
 </template>
 
 <script>
-import pageHeader from '@/components/Layout/pageHeader'
+import breadcrumb from '@/components/Elements/breadcrumb'
 import errorMessages from '@/components/Elements/errorMessages'
 import baseButton from '@/components/Elements/baseButton'
 
 export default {
-    name: 'user.edit',
+    name: 'Edit.Info',
     components: {
-        pageHeader,
         errorMessages,
-        baseButton
+        baseButton,
+        breadcrumb
     },
     watch: {
         "view" : {

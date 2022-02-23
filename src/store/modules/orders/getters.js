@@ -5,3 +5,7 @@ export const orders = (state) => {
 export const success = (state) => {
     return state.success
 }
+
+export const errors = (state) => {
+    return state.errors
+}

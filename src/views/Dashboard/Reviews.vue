@@ -1,7 +1,8 @@
 <template>
     <div>
-        <pageHeader
-            text="Le mie recensioni"
+        <breadcrumb
+            :routes="[{ name: 'Dashboard', text: 'Dashboard' }]"
+            current="le mie recensioni"
         />
 
         <div v-if="reviews" class="pt-6">
@@ -62,7 +63,7 @@
                             <label for="body" class="text-xs text-gray-400 mb-1 block">Modifica il commento *</label>
                             <textarea
                                 v-model="selectedReview.body"
-                                rows="12"
+                                rows="6"
                                 name="body"
                                 class="resize-none w-full border border-gray-100 focus:outline-none focus:border-primary-100 transition p-3 text-sm"
                             ></textarea>
@@ -79,7 +80,7 @@
 </template>
 
 <script>
-import pageHeader from '@/components/Layout/pageHeader'
+import breadcrumb from '@/components/Elements/breadcrumb'
 import singleReview from '@/components/singleReview'
 import baseButton from '@/components/Elements/baseButton'
 import errorMessages from '@/components/Elements/errorMessages'
@@ -87,7 +88,7 @@ import errorMessages from '@/components/Elements/errorMessages'
 export default {
     name: 'Reviews',
     components: {
-        pageHeader,
+        breadcrumb,
         singleReview,
         baseButton,
         errorMessages
@@ -138,7 +139,10 @@ export default {
         },
         updateReview() {
             this.$store.dispatch('reviews/updateReview', { review: this.selectedReview })
-        }
+        },
+        selectRating(value) {
+            this.selectedReview.rating = value
+        },
     }
 }
 </script>

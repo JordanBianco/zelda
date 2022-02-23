@@ -56,7 +56,7 @@ export const logout = async ({commit}) => {
             commit('SET_AUTH_STATUS', false)
             commit('SET_TOKEN', null)
             commit('SET_USER', null)
-            router.push({ name: 'Book.index' })
+            router.push({ name: 'Books' })
         }
     } catch (error) {
         console.log(error)
@@ -154,7 +154,7 @@ export const deleteAccount = async ({commit}) => {
             commit('SET_AUTH_STATUS', false)
             commit('SET_TOKEN', null)
             commit('SET_USER', null)
-            router.push({ name: 'Book.index' })
+            router.push({ name: 'Books' })
         }
     } catch (error) {
         console.log(error)

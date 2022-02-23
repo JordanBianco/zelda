@@ -33,7 +33,7 @@ const routes = [
 	// Books
 	{
 		path: '/',
-		name: 'Book.index',
+		name: 'Books',
 		component: () => import(/* webpackChunkName: "bookIndex" */ '../views/Book/Index.vue')
 	},
 	{
@@ -68,45 +68,44 @@ const routes = [
 			return props
 		},
 	},
-	// Dashboard
+	// User Dashboard
 	{
 		path: '/dashboard',
-		name: 'Dashboard',
-		component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard/Index.vue'),
-		meta: { auth : true }
-	},
-	{
-		path: '/orders',
-		name: 'Orders',
-		component: () => import(/* webpackChunkName: "orders" */ '../views/Dashboard/Orders.vue'),
-		meta: { auth : true }
-	},
-	{
-		path: '/favourites',
-		name: 'Favourites',
-		component: () => import(/* webpackChunkName: "favourites" */ '../views/Dashboard/Favourites.vue'),
-		meta: { auth : true }
-	},
-	{
-		path: '/reviews',
-		name: 'Reviews',
-		component: () => import(/* webpackChunkName: "reviews" */ '../views/Dashboard/Reviews.vue'),
-		meta: { auth : true }
-	},
-	// User
-	{
-		path: '/user/edit',
-		name: 'User.edit',
-		component: () => import(/* webpackChunkName: "userEdit" */ '../views/Dashboard/User/Edit.vue'),
-		meta: { auth : true }
-	},
-	// {
-	// 	path: '/publish',
-	// 	name: 'Publish',
-	// 	component: () => import(/* webpackChunkName: "publish" */ '../views/Publish.vue'),
-	// 	meta: { auth : true }
-	// },
-	
+		component: () => import(/* webpackChunkName: "layout" */ '../views/Dashboard/Layout.vue'),
+		meta: { auth : true },
+		children: [
+			{
+				path: '/',
+				name: 'Dashboard',
+				component: () => import(/* webpackChunkName: "index" */ '../views/Dashboard/Index.vue'),
+				meta: { auth : true }
+			},
+			{
+				path: '/orders',
+				name: 'Orders',
+				component: () => import(/* webpackChunkName: "orders" */ '../views/Dashboard/Orders.vue'),
+				meta: { auth : true }
+			},
+			{
+				path: '/favourites',
+				name: 'Favourites',
+				component: () => import(/* webpackChunkName: "favourites" */ '../views/Dashboard/Favourites.vue'),
+				meta: { auth : true }
+			},
+			{
+				path: '/reviews',
+				name: 'Reviews',
+				component: () => import(/* webpackChunkName: "reviews" */ '../views/Dashboard/Reviews.vue'),
+				meta: { auth : true }
+			},
+			{
+				path: '/user/edit',
+				name: 'Settings',
+				component: () => import(/* webpackChunkName: "userEdit" */ '../views/Dashboard/User/Edit.vue'),
+				meta: { auth : true }
+			},
+		]
+	},	
 	// Shop
 	{
 		path: '/cart',
@@ -139,6 +138,16 @@ const router = new VueRouter({
 	},
 })
 
+// Titolo della pagina
+router.beforeEach((to, from, next) => {
+	if (to.params.id) {
+		document.title =  process.env.VUE_APP_TITLE  + ' | ' + to.name.split('.')[0] + ' ' + to.params.id
+	} else {
+		document.title =  process.env.VUE_APP_TITLE + ' | ' + to.name 
+	}
+	next()
+})
+
 router.beforeEach((to, from, next) => {
 	if (to.meta.auth) {
 
@@ -146,7 +155,7 @@ router.beforeEach((to, from, next) => {
 
 			if (to.meta.cart) {
 				if (store.getters['cart/items'].length == 0) {
-					next({ name: 'Book.index' })
+					next({ name: 'Books' })
 				} else {
 					next()
 				}

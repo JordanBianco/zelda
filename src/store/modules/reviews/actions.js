@@ -23,7 +23,7 @@ export const storeReview = async ({commit}, {id, review}) => {
         if (res.status === 201) {
             commit('ADD_REVIEWED', id)
             commit('SET_SUCCESS_STATUS', true)
-            commit('notifications/ADD_NOTIFICATION', { message: 'Grazie per aver lasciato una recensione' }, { root:true})
+            commit('notifications/ADD_NOTIFICATION', { message: 'Recensione aggiunta' }, { root:true})
         }
     } catch (error) {
         if (error.response.status === 422) {

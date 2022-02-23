@@ -2,7 +2,7 @@
 	<div class="pb-20">
         <div v-if="book">
             <breadcrumb
-                :routes="[{ name: 'Book.index', text: 'Libri' }]"
+                :routes="[{ name: 'Books', text: 'Libri' }]"
                 :current="book.title"
             />
 
@@ -10,8 +10,8 @@
                 v-if="book.quantity_in_stock >= 1 && book.quantity_in_stock <= 4"
                 class="bg-blue-100 text-blue-500 text-sm p-4 mt-4 mb-10 rounded-lg flex items-center space-x-2"
             >
-                    <svg class="w-5 h-5 flex-none" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Zm0-8.5a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0v-3A1,1,0,0,0,12,11.5Zm0-4a1.25,1.25,0,1,0,1.25,1.25A1.25,1.25,0,0,0,12,7.5Z"/></svg>
-                    <p>{{ book.quantity_in_stock == 1 ? 'È rimasta solo ' + book.quantity_in_stock + ' copia' : 'Sono rimaste solo ' + book.quantity_in_stock + ' copie' }}</p>
+                <svg class="w-5 h-5 flex-none" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Zm0-8.5a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0v-3A1,1,0,0,0,12,11.5Zm0-4a1.25,1.25,0,1,0,1.25,1.25A1.25,1.25,0,0,0,12,7.5Z"/></svg>
+                <p>{{ book.quantity_in_stock == 1 ? 'È rimasta solo ' + book.quantity_in_stock + ' copia' : 'Sono rimaste solo ' + book.quantity_in_stock + ' copie' }}</p>
             </div>
 
             <section class="md:flex md:space-x-8 border-b pb-20 mb-20">
@@ -33,22 +33,22 @@
                 </section>
                 <section class="md:w-3/5 lg:w-2/3 flex flex-col space-y-6 justify-between">
                     <div>
-                        <div class="md:flex md:items-start md:justify-between md:space-x-8 text-2xl text-secondary-100 mb-1">
+                        <div class="md:flex md:items-start md:justify-between md:space-x-8 text-2xl text-secondary-100 mb-3">
                             <h2 class="leading-none mb-2 md:mb-0">{{ book.title }}</h2>
                             <p>€{{ book.price }},00</p>      
                         </div>
     
-                        <div class="flex items-center text-gray-500 space-x-2 text-sm">
+                        <div class="flex flex-col space-y-1 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-2 text-sm text-gray-500">
                             <!-- Autori -->
                             <router-link
                                 v-for="author in book.authors"
                                 :key="author.id"
                                 to=""
-                                class="block leading-tight hover:text-primary-300 transition">
+                                class="block leading-tight hover:text-primary-300 transition whitespace-nowrap">
                                     {{ author.name }}
                             </router-link>
 
-                            <span class="text-xs">&bull;</span>
+                            <span class="text-xs hidden sm:block">&bull;</span>
 
                             <!-- Generi -->
                             <div class="flex items-center space-x-2">
@@ -61,7 +61,7 @@
                                 </router-link>
                             </div>
 
-                            <span class="text-xs">&bull;</span>
+                            <span class="text-xs hidden sm:block">&bull;</span>
 
                             <span class="block">{{ book.first_published }}</span>
                         </div>

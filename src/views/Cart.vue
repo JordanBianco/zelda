@@ -28,12 +28,12 @@
                         <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-10 justify-between md:items-center">
                             <div class="w-2/3">
                                 <h3 class="text-gray-600 leading-tight text-sm md:text-base mb-1">{{ item.book.title }}</h3>
-                                <div class="md:flex md:items-center md:space-x-2 text-xs lg:text-sm">
+                                <div class="md:flex md:items-center md:space-x-2 text-xs">
                                     <router-link
                                         v-for="author in item.book.authors"
                                         :key="author.id"
                                         to=""
-                                        class="block leading-tight text-gray-400 hover:text-gray-600">
+                                        class="block leading-tight text-gray-400 hover:text-gray-600 whitespace-nowrap">
                                             {{ author.name }}
                                     </router-link>
 
@@ -109,7 +109,7 @@
                 <p class="text-gray-400">Il tuo carrello è vuoto.</p>
                 <router-link
                     class="text-gray-500 max-w-max"
-                    :to="{ name: 'Book.index' }">
+                    :to="{ name: 'Books' }">
                         Continua lo shopping
                 </router-link>
         </div>

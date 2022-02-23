@@ -10,7 +10,7 @@
                 </div>
                 <div
                     v-if="showDashboardMenu"
-                    class="absolute top-11 right-0 bg-white shadow rounded-lg p-2 w-56 z-20">
+                    class="absolute top-11 right-0 bg-white shadow rounded-lg p-2 w-56 z-40">
                         <header class="p-2">
                             <span class="text-gray-600">{{ user.name }}</span>
                         </header>
@@ -68,7 +68,7 @@
         <div
             v-if="showDashboardMenu"
             @click="toggleDashboardMenu()"
-            class="fixed inset-0 z-10"></div>
+            class="fixed inset-0 z-30"></div>
     </div>
 </template>
 

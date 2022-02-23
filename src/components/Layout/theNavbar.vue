@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="bg-white py-5 border-b border-gray-100">
-            <div class="w-85% xl:w-3/4 mx-auto flex items-center justify-between">
+            <div class="px-5 md:px-10 lg:px-20 flex items-center justify-between">
             
                 <div class="w-1/3 md:hidden">
                     <svg @click="toggleSidemenu()" class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
@@ -10,14 +10,14 @@
                 <div class="w-1/3 justify-center md:justify-start flex items-baseline md:space-x-4">
                     <router-link
                         class="text-secondary-100 tracking-widest text-xl"
-                        :to="{ name: 'Book.index' }">
+                        :to="{ name: 'Books' }">
                             <h1>Zelda</h1>
                     </router-link>
 
                     <router-link
                         class="text-gray-400 hidden md:block"
                         exact-active-class="text-primary-300"
-                        :to="{ name: 'Book.index' }">
+                        :to="{ name: 'Books' }">
                             Libri
                     </router-link>
                 </div>
@@ -41,7 +41,7 @@
 
         <aside
             :class="{ '-translate-x-full' : ! showSidemenu }"
-            class="bg-white fixed left-0 top-0 bottom-0 transform transition ease-linear w-full xs:w-3/5 md:w-1/3 z-20">
+            class="bg-white fixed left-0 top-0 bottom-0 transform transition ease-linear w-full xs:w-3/5 md:w-1/3 z-40">
                 <header class="flex p-6 text-gray-400">
                     <svg
                         @click="toggleSidemenu()"
@@ -51,7 +51,7 @@
                     <router-link
                         class="text-gray-400"
                         exact-active-class="text-primary-300"
-                        :to="{ name: 'Book.index' }">
+                        :to="{ name: 'Books' }">
                             Libri
                     </router-link>
                 </div>

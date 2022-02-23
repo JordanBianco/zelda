@@ -1,7 +1,8 @@
 <template>
     <div>
-        <pageHeader
-            text="I miei acquisti"
+        <breadcrumb
+            :routes="[{ name: 'Dashboard', text: 'Dashboard' }]"
+            current="i miei acquisti"
         />
 
         <div v-if="orders">
@@ -60,13 +61,13 @@
 </template>
 
 <script>
-import pageHeader from '@/components/Layout/pageHeader'
+import breadcrumb from '@/components/Elements/breadcrumb'
 import addReview from '@/components/addReview'
 
 export default {
     name: 'Orders',
     components: {
-        pageHeader,
+        breadcrumb,
         addReview
     },
     mounted() {

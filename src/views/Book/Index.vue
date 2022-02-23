@@ -76,7 +76,7 @@ import theSorting from '@/components/Layout/theSorting'
 import bookCard from '@/components/bookCard'
 
 export default {
-	name: 'Book.index',
+	name: 'Books',
 	components: {
 		sideFilters,
 		theSorting,

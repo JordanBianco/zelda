@@ -1,5 +1,5 @@
 <template>
-    <header class="py-6 flex items-center text-sm">
+    <header class="py-6 flex items-start text-sm">
         <div
             v-for="route, index in routes"
             :key="index"
